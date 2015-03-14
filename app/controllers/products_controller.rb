@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_parmas)  # create new Product with required options in 
+    @product = Product.new(product_params)  # create new Product with required options in 
                                             # ( product_parmas) which is defined at the bottom
 
         if @product.save
