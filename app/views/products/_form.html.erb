@@ -1,5 +1,5 @@
 
-
+<!-- This is the new product form which is displayed on /products/new page -->
 <%= form_for(@product) do |f| %>
 
 <div class ="field">
@@ -7,28 +7,20 @@
 <%= f.text_field :name %>
 </div><br>
 
-
-
 <div class ="field">
 <%= f.label :description %> <br>
 <%= f.text_field :description %>
 </div><br>
-
-
 
 <div class ="field">
 <%= f.label :price %> <br>
 <%= f.number_field :price %>
 </div><br>
 
-
-
 <div class ="field">
 <%= f.label :url %> <br>
 <%= f.text_field :url %>
 </div><br>
-
-
 
 <div class ="actions">
 <%= f.submit  %> 
@@ -36,3 +28,19 @@
 
 
 <% end %>
+
+<!-- THis is  the Validation Error Form, to Display validation errors on the page. -->
+
+<%= form_for (@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> Prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li> <%= msg %></li>
+        <% end %>
+        </ul>
+        </div>
+        <% end %>
+        <% end %>
