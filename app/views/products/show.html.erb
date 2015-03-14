@@ -1,2 +1,34 @@
 <h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+
+<div class="product">
+<p> 
+  <b>Name:</b>
+  <%= @product.name %>
+  </p>
+  </div>
+
+<div class="product">
+<p> 
+  <b>Description:</b>
+  <%= @product.description %>
+  </p>
+  </div>
+
+  <div class="product">
+<p> 
+  <b>Price: $</b>
+  <%= @product.formatted_price %>
+  </p>
+  </div>
+
+  <div class="product">
+<p> 
+  <b>Product URL:</b><br>
+  <%= image_tag @product.url %>
+  </p>
+  </div>
+
+
+<br>
+<%= link_to 'Back', products_path %>
+
