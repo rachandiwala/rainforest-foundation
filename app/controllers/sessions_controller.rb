@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
                                                        # This completes the process of session
           redirect_to products_url, notice: "Logged In!"
         else
+          flash.now[:alert] = "Invalid email or Password"
           render "new"
         end
       end
