@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @prodcut = Product.find(params[:id])      #find/go to the product you wnat to delete
+    @product = Product.find(params[:id])      #find/go to the product you wnat to delete
     @product.destroy                          #Delete that product and go back to product main page
     redirect_to products_path
 

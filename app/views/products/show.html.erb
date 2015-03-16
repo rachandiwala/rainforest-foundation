@@ -1,4 +1,4 @@
-<h1>Products#show</h1>
+<h1>Product Information Page</h1>
 
 <div class="product">
 <p> 
@@ -23,12 +23,12 @@
 
   <div class="product">
 <p> 
-  <b>Product URL:</b><br>
+  <b>Product Picture:</b><br>
   <%= image_tag @product.url %>
   </p>
   </div>
 
 
 <br>
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back to Product', products_path %> | <%= link_to 'Edit Product', edit_product_path(@product) %> | <%= link_to "Delete Product", @product, method: :Delete, data: {confirm: "Are you sure you want to delete this Product?"} %>
 
