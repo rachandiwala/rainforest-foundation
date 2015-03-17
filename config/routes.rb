@@ -2,10 +2,21 @@ Rails.application.routes.draw do
   
 
 
-resources :products
+  
+
+
 resources :users, only: [:new, :create]
 resources :sessions, only: [:new, :create, :destroy]
- 
+resources :products do 
+  resources :reviews, only: [:show, :create, :destroy]
+end
+
+# routes created by reviews controller
+ # get 'reviews/show'
+
+ # get 'reviews/create'
+
+ # get 'reviews/destroy'
  # Routes created by Session Controller
  # get 'sessions/new'
 
