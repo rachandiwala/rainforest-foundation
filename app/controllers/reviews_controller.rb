@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+  before_filter :ensure_logged_in, only: [:create, :destroy]  #Run these methods first
   before_filter :load_product
 
 
