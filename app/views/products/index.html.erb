@@ -1,13 +1,15 @@
 <h1><center>Total Number of Product (<%= @products.length %>) </center></h1>
 
-<%= link_to "Create a New Product", "/products/new" %>
+<%= link_to "Create a New Product", "/products/new" %><br><br>
 
 <% @products.each do |product| %>
 <div class="product-list">
 <p>
   <%= product.name %>, <%= product.description %> <br>
   $<%= product.formatted_price %> <br><br> Click on the image for full product information:<br><br>
+  <div class="image-list">
   <%= link_to image_tag(product.url), "/products/#{product.id}" %>
+  </div>
 </p>
   </div>
   <% end %>
