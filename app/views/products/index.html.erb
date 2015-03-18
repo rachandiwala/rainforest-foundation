@@ -5,11 +5,9 @@
 <% @products.each do |product| %>
 <div class="product-list">
 <p>
-  <%= product.name %>, <%= product.description %> <br>
-  $<%= product.formatted_price %> <br><br> Click on the image for full product information:<br><br>
-  <div class="image-list">
-  <%= link_to image_tag(product.url), "/products/#{product.id}" %>
-  </div>
+  <b><%= product.name %>, <%= product.description %>,   $<%= product.formatted_price %> </b><br> Click on the image for full product information:<br>
+  <%= link_to image_tag(product.url), "/products/#{product.id}" %><br><br>
+  
 </p>
   </div>
   <% end %>
