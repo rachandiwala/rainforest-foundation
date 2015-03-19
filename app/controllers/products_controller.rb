@@ -1,6 +1,28 @@
 class ProductsController < ApplicationController
-  def index
-    @products = Product.all  # will show all products on products page (index page)
+  
+ 
+#  This code is for an HTML request from the browser:
+ # def index
+ #   @products = if params[:search] #Search method
+ #    Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%") 
+ #   else
+ #     Product.all  # will show all products on products page (index page)
+
+ #   end
+ # end
+  
+ # This is replacement code of the Html code above using AJAX request/response
+  
+def index
+    @products = if params[:search]
+      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    else
+      Product.all
+    end
+
+    if request.xhr?
+      render @products
+    end
   end
 
   def show

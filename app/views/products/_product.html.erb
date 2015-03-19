@@ -1,0 +1,23 @@
+<!-- code moved from index.html.erb -->
+<% @products.each do |product| %>
+<div class="product-list">
+<p>
+  <b><%= product.name %>, <%= product.description %>,   $<%= product.formatted_price %> </b><br> 
+  <div class="image">
+  <%= link_to image_tag(product.url), "/products/#{product.id}" %><br><br>
+  </div>
+</p>
+  </div>
+  <% end %>
+
+<!--   code to create a link out of product name with path to the prodcut 
+
+  <%= link_to product_path(product.id) do %>
+  <h2>
+    <%= product.formatted_price %>
+    <%= product.name %>
+    <%= product.description %>
+  </h2>
+<% end %>
+
+-->
