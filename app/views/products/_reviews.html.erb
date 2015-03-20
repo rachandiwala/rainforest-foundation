@@ -18,7 +18,8 @@
 <% if current_user %>
   <h4>Create a New Review </h4>
 
-  <!-- Review form to PSOT via AJAX request: just add :remote ==> true -->
+  <!-- Review form to POST via AJAX request: just add :remote ==> true -->
+  <!-- The form shoud work even if I remove the remote => true from this form -->
   <%= form_for [@product, @review], :remote => true do |f| %>
     <% if @review.errors.any? %>
       <div id="error_explanation">
