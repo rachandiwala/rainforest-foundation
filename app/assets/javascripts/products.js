@@ -10,6 +10,10 @@
 */
 
 
+
+//        rainforest_ajax : Infinite Scroll and Pagination
+
+
 $(document).on('ready page:load', function() {
   $('#search-form').submit(function(event) {
     event.preventDefault();
@@ -24,6 +28,47 @@ $(document).on('ready page:load', function() {
     });
   });
 });
+
+/*
+// Step 1 and 2
+$(document).on('ready page:load', function(){
+
+  $(window).scroll(function(){
+    if ($(window).scrollTop() > $(document).height() - $(window).height() -50){
+   //   return alert('Near bottom');
+      console.log($('.pagination span.next').children().attr('href'));
+       $.getScript($('.pagination span.next').children().attr('href'));
+    }
+  });
+});
+
+// Step 3: create 'index.js.erb'
+// This code triggers the ProductController’s index action, passing in the correct page, and 
+// expects some JavaScript to be returned. The action doesn’t currently respond to JavaScript so 
+// we’ll need to add the relevant template. We’ll use a js.erb template here. 
+
+// Step 4: 
+//Trigger the window’s scroll event when the page first loads. If the user’s browser 
+//window is tall enough to display all of the first page the second page of products will then 
+//automatically be loaded. We should also check that we’re on the correct page before we start 
+//listening to the scroll event, otherwise this code will listen for that event on every page 
+//under the ProductsController. We can do this by checking that the pagination control exists 
+//on the page before listening to the scroll event. With these in place the final version of 
+//the code looks like this.
+*/
+$(document).on('ready page:load', function() {
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination span.next').children().attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').text("Fetching more products...");
+        return $.getScript(url);
+      }
+    });
+  }
+});
+
+
 
 /*
 

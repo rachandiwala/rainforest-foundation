@@ -18,14 +18,22 @@ def index
    # @products = Product.order('products.created_at DESC').page(params[:page], :per_page => 5)
     @products = if params[:search]
       Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%").page(params[:page])
-    else
+      else
       Product.all.page(params[:page])
     end
 
+    respond_to do |format|
+      format.html do
     if request.xhr?
       render @products
     end
   end
+
+  format.js # render 'index.js.erb', a javascript response
+  end
+end
+
+
 
   def show
     @product = Product.find(params[:id])  # show products by its id parameter

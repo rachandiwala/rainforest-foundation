@@ -1,0 +1,4 @@
+$('#products').append('<%= j(render @products) %>');
+$('.pagination').replaceWith('<%= j(paginate @products) %>');
+$('.page-entries').html('<%= j(page_entries_info @products) %>');
+
