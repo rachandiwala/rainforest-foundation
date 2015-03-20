@@ -2,17 +2,24 @@
 
 <u><%= link_to "Create a New Product", "/products/new" %></u><br><br>
 
+<!-- Pageination with Kaminari -->
+<center>
+<h4 class="page-entries"><%= page_entries_info @products, :entry_name => 'product' %></h4>
 
-
+<%= paginate @products %><br>
+</center>
+<!-- search Form -->
 
 <%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search" %>
 <% end %>
 
+
 <div id="products">
   <%= render @products %>
 </div>
+
 
 
 <script type="text/javascript">

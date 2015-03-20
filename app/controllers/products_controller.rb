@@ -14,10 +14,12 @@ class ProductsController < ApplicationController
  # This is replacement code of the Html code above using AJAX request/response
   
 def index
+
+   # @products = Product.order('products.created_at DESC').page(params[:page], :per_page => 5)
     @products = if params[:search]
-      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%").page(params[:page])
     else
-      Product.all
+      Product.all.page(params[:page])
     end
 
     if request.xhr?
